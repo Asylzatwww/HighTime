@@ -11,7 +11,7 @@
         android:layout_width="240dp"
         android:layout_height="120dp"
         android:layout_marginTop="44dp"
-        android:layout_marginBottom="21dp"
+        android:layout_marginBottom="41dp"
         app:layout_constraintBottom_toTopOf="@+id/btn_main2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,7 +21,8 @@
     <Button
         android:id="@+id/btn_studentam"
         android:layout_width="0dp"
-        android:layout_height="50dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="2dp"
         android:background="@android:color/transparent"
         android:onClick="StudentamActivityOpen"
         android:text="Студентам"
@@ -37,14 +38,13 @@
         android:id="@+id/btn_main2"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="104dp"
+        android:layout_marginBottom="3dp"
         android:background="@android:color/transparent"
         android:text="Главная"
         android:textAllCaps="false"
         android:textColor="#6C8CC7"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_instruction"
+        app:layout_constraintBottom_toTopOf="@+id/btn_onas"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
@@ -52,7 +52,8 @@
     <Button
         android:id="@+id/btn_onas"
         android:layout_width="0dp"
-        android:layout_height="50dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="1dp"
         android:background="@android:color/transparent"
         android:onClick="ONasActivityOpen"
         android:text="О Нас"
@@ -78,7 +79,7 @@
         app:layout_constraintBottom_toTopOf="@+id/btn_nashakomanda"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_main2" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_studentam" />
 
     <Button
         android:id="@+id/btn_nashakomanda"
@@ -116,6 +117,7 @@
         android:id="@+id/btn_news"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginBottom="23dp"
         android:background="@android:color/transparent"
         android:onClick="ONasActivityOpen"
         android:text="Новости"
@@ -131,14 +133,14 @@
         android:id="@+id/btn_contacts"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="45dp"
+        android:layout_marginBottom="122dp"
         android:background="@android:color/transparent"
         android:onClick="ONasActivityOpen"
         android:text="Контакты"
         android:textAllCaps="false"
         android:textColor="#6C8CC7"
         android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/btn_registration"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_news" />
@@ -146,16 +148,15 @@
     <Button
         android:id="@+id/btn_registration"
         android:layout_width="150dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="15dp"
+        android:layout_height="32dp"
+
+        android:layout_marginTop="20dp"
+        android:background="@drawable/mybutton"
         android:text="Регистрация"
         android:textColor="@android:color/white"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-
-        android:background="@drawable/mybutton"
-
         app:layout_constraintTop_toBottomOf="@+id/btn_contacts" />
 
 </android.support.constraint.ConstraintLayout>
