@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="240dp"
+        android:layout_height="120dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginBottom="21dp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_main2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/logo" />
+
+    <Button
+        android:id="@+id/btn_studentam"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:background="@android:color/transparent"
+        android:onClick="StudentamActivityOpen"
+        android:text="Студентам"
+        android:textAllCaps="false"
+        android:textColor="#6C8CC7"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_instruction"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_onas" />
+
+    <Button
+        android:id="@+id/btn_main2"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="104dp"
+        android:background="@android:color/transparent"
+        android:text="Главная"
+        android:textAllCaps="false"
+        android:textColor="#6C8CC7"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_instruction"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <Button
+        android:id="@+id/btn_onas"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:background="@android:color/transparent"
+        android:onClick="ONasActivityOpen"
+        android:text="О Нас"
+        android:textAllCaps="false"
+        android:textColor="#6C8CC7"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_studentam"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_main2" />
+
+    <Button
+        android:id="@+id/btn_instruction"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="5dp"
+        android:background="@android:color/transparent"
+        android:onClick="InstructionActivityOpen"
+        android:text="Инструкция"
+        android:textAllCaps="false"
+        android:textColor="#6C8CC7"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_nashakomanda"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_main2" />
+
+    <Button
+        android:id="@+id/btn_nashakomanda"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="3dp"
+        android:background="@android:color/transparent"
+        android:onClick="ONasActivityOpen"
+        android:text="Наша команда"
+        android:textAllCaps="false"
+        android:textColor="#6C8CC7"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_nashifilialy"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_instruction" />
+
+    <Button
+        android:id="@+id/btn_nashifilialy"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="4dp"
+        android:background="@android:color/transparent"
+        android:onClick="ONasActivityOpen"
+        android:text="Наши филиалы"
+        android:textAllCaps="false"
+        android:textColor="#6C8CC7"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_news"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_nashakomanda" />
+
+    <Button
+        android:id="@+id/btn_news"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@android:color/transparent"
+        android:onClick="ONasActivityOpen"
+        android:text="Новости"
+        android:textAllCaps="false"
+        android:textColor="#6C8CC7"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_contacts"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_nashifilialy" />
+
+    <Button
+        android:id="@+id/btn_contacts"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="45dp"
+        android:background="@android:color/transparent"
+        android:onClick="ONasActivityOpen"
+        android:text="Контакты"
+        android:textAllCaps="false"
+        android:textColor="#6C8CC7"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/btn_registration"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_news" />
+
+    <Button
+        android:id="@+id/btn_registration"
+        android:layout_width="150dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="15dp"
+        android:text="Регистрация"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+
+        android:background="@drawable/mybutton"
+
+        app:layout_constraintTop_toBottomOf="@+id/btn_contacts" />
+
+</android.support.constraint.ConstraintLayout>
