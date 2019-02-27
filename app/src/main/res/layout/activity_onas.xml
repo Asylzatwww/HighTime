@@ -11,14 +11,16 @@
         android:id="@+id/textView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginLeft="16dp"
+        android:layout_marginStart="44dp"
+        android:layout_marginLeft="44dp"
         android:layout_marginTop="89dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_marginEnd="44dp"
+        android:layout_marginRight="44dp"
         android:text="КрупнейшаяЯзыковая школа Кыргызстана по изучению английского языка. HighTime был создан 13 января 2006 года. Основателем школы HighTime является Гульзат Мамытбек. Цель создания школы - открыть бизнес и забрать родителей из села, из села Ала-Бука, Жалал-Абадской области."
+        android:textColor="#00AEEF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="КрупнейшаяЯзыковая школа Кыргызстана по изучению английского языка. HighTime был создан 13 января 2006 года. Основателем школы HighTime является Гульзат Мамытбек. Цель создания школы - открыть бизнес и забрать родителей из села, из села Ала-Бука, Жалал-Абадской области." />
+
 </android.support.constraint.ConstraintLayout>

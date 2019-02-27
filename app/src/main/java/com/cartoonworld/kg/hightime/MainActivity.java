@@ -36,11 +36,15 @@ public class MainActivity extends AppCompatActivity {
     /** Called when the user taps the Send button */
     public void InstructionActivityOpen(View view) {
         Intent intent = new Intent(this, InstructionActivity.class);
-        //EditText editText = (EditText) findViewById(R.id.editText);
-        //String message = editText.getText().toString();
-        //intent.putExtra(EXTRA_MESSAGE, message);
+
         startActivity(intent);
     }
 
+    /** Called when the user taps the Send button */
+    public void RegisterActivityOpen(View view) {
+        Intent intent = new Intent(this, RegisterActivity.class);
+
+        startActivity(intent);
+    }
 
 }
