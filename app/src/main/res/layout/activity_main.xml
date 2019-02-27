@@ -103,7 +103,7 @@
         android:layout_height="0dp"
         android:layout_marginBottom="4dp"
         android:background="@android:color/transparent"
-        android:onClick="ONasActivityOpen"
+        android:onClick="FilialActivityOpen"
         android:text="Наши филиалы"
         android:textAllCaps="false"
         android:textColor="#6C8CC7"

@@ -47,4 +47,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void FilialActivityOpen(View view) {
+        Intent intent = new Intent(this, FilialyActivity.class);
+
+        startActivity(intent);
+    }
+
+
 }
