@@ -14,10 +14,21 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ContactActivity"
-            android:parentActivityName=".MainActivity"
+        <activity
+            android:name=".test.Test2Activity"
+            android:label="@string/title_activity_test2"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".test.Test1Activity"
+            android:label="Пройдите тест"
+            android:parentActivityName=".StudentamActivity"
             >
-
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".StudentamActivity" />
+        </activity>
+        <activity
+            android:name=".ContactActivity"
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
