@@ -12,42 +12,11 @@
 
     <android.support.v7.widget.LinearLayoutCompat
         android:layout_width="wrap_content"
+        android:id="@+id/testLayout"
 
         android:orientation="vertical"
 
         android:layout_height="wrap_content">
-
-
-        <TextView
-            android:id="@+id/test1text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:text="@string/test1text"
-            android:textAppearance="@style/test1text"
-            />
-
-        <View
-            android:id="@+id/line"
-            android:layout_width="wrap_content"
-            android:layout_height="1dp"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="38dp"
-            android:layout_marginRight="38dp"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/line"
-            />
-
-        <TextView
-            android:id="@+id/hightime"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_margin="20dp"
-            android:text="@string/hightime"
-            android:textAppearance="@style/hightime"
-            android:gravity="center_horizontal"
-            />
 
 
 

@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.cartoonworld.kg.hightime.test.Test1Activity;
-import com.cartoonworld.kg.hightime.test.Test2Activity;
 
 public class StudentamActivity extends AppCompatActivity {
 

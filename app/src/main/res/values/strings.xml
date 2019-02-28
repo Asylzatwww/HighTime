@@ -121,4 +121,109 @@ High Time даст вам возможность быстро и легко вы
 
     <string name="test1text">1) Составьте из данных слов предложение:</string>
 
+    <string-array name="quesDesc">
+        <item>1) Составьте из данных слов предложение:</item>
+        <item>2) Составьте из данных слов предложение:</item>
+        <item>3) Составьте из данных слов предложение:</item>
+        <item>4) Выберите правильный ответ:</item>
+        <item>5) Выберите правильный ответ:</item>
+
+        <item>6) Выберите правильный ответ:</item>
+        <item>7) Выберите правильный ответ:</item>
+        <item>8) Выберите правильный ответ:</item>
+        <item>9) Выберите правильный ответ:</item>
+        <item>10) Выберите правильный ответ:</item>
+
+        <item>11) Выберите правильный ответ:</item>
+        <item>12) Выберите правильный ответ:</item>
+        <item>13) Выберите правильный ответ:</item>
+        <item>14) Выберите правильный ответ:</item>
+        <item>15) Выберите правильный ответ:</item>
+
+    </string-array>
+
+    <string-array name="questTest">
+        <!-- -  1  -  -->
+        <item>Dinner she cooks</item>
+        <item>She cooks dinner</item>
+        <item>Cooks dinner she</item>
+
+        <!-- -  2  -  -->
+        <item>Go out we don’t tonight</item>
+        <item>We tonight go out don’t tonight</item>
+        <item>We don’t go out tonight</item>
+
+        <!-- -  3  -  -->
+        <item>It is raining outside</item>
+        <item>Raining outside it is</item>
+        <item>Outside it raining is</item>
+
+        <!-- -  4  -  -->
+        <item>Are</item>
+        <item>Can</item>
+        <item>Will</item>
+
+        <!-- -  5  -  -->
+        <item>Right</item>
+        <item>Will</item>
+        <item>Shall</item>
+
+        <!-- -  6  -  -->
+        <item>Shouted</item>
+        <item>Shouting</item>
+        <item>Shout</item>
+
+        <!-- -  7  -  -->
+        <item>Died</item>
+        <item>Die</item>
+        <item>Dying</item>
+
+        <!-- -  8  -  -->
+        <item>Been</item>
+        <item>Became</item>
+        <item>Being</item>
+
+        <!-- -  9  -  -->
+        <item>Is</item>
+        <item>Are</item>
+        <item>Has</item>
+
+        <!-- -  10  -  -->
+        <item>Being followed</item>
+        <item>Follows</item>
+        <item>Following</item>
+
+        <!-- -  11  -  -->
+        <item>would</item>
+        <item>will</item>
+        <item>may</item>
+        <item>could</item>
+
+        <!-- -  12  -  -->
+        <item>used to be</item>
+        <item>used to</item>
+        <item>is used to</item>
+        <item>was used to</item>
+
+        <!-- -  13  -  -->
+        <item>used to</item>
+        <item>am used to</item>
+        <item>is used</item>
+        <item>used to be</item>
+
+        <!-- -  14  -  -->
+        <item>would</item>
+        <item>will</item>
+        <item>may</item>
+        <item>may</item>
+
+        <!-- -  15  -  -->
+        <item>used to</item>
+        <item>was used to</item>
+        <item>were used to</item>
+        <item>use to</item>
+
+
+    </string-array>
+
 </resources>
