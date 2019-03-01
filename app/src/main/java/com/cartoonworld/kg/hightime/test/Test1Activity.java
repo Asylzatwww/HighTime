@@ -10,6 +10,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.ListView;
@@ -49,6 +50,9 @@ public class Test1Activity extends AppCompatActivity {
         addRadio(layout, 4);
 
 
+        View buttonTest2 = getLayoutInflater().inflate(R.layout.button, null);
+
+        layout.addView(buttonTest2);
 
     }
 
