@@ -77,7 +77,7 @@
     <style name="onas_text">
 
         <item name="android:textSize">
-            16sp
+            14sp
         </item>
 
         <item name="android:textColor">
@@ -95,6 +95,19 @@
         <item name="android:textColor">
             #FFFFFF
         </item>
+
+    </style>
+
+    <style name="onas_text_s2">
+
+        <item name="android:textSize">
+            9sp
+        </item>
+
+        <item name="android:textColor">
+            #6D6E70
+        </item>
+
 
     </style>
 

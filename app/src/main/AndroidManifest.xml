@@ -15,7 +15,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".NashaKomandaActivity"
-            android:label="Наша Команда"
+            android:label=""
             android:parentActivityName=".MainActivity"
             >
             <meta-data
@@ -55,6 +55,7 @@
         </activity>
         <activity
             android:name=".FilialyActivity"
+            android:label=""
             android:parentActivityName=".MainActivity">
 
             <!-- The meta-data tag is required if you support API level 15 and lower -->
@@ -65,9 +66,16 @@
         <activity
             android:name=".RegisterActivity"
             android:label="@string/title_activity_register" />
-        <activity android:name=".InstructionActivity" />
+        <activity android:name=".InstructionActivity"
+            android:label=""
+            android:parentActivityName=".MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
         <activity
             android:name=".StudentamActivity"
+            android:label=""
             android:parentActivityName=".MainActivity">
 
             <!-- The meta-data tag is required if you support API level 15 and lower -->

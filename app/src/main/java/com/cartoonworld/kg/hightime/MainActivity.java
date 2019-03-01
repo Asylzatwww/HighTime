@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
 
     /** Called when the user taps the Send button */
     public void StudentamActivityOpen(View view) {
-        Intent intent = new Intent(this, StudentamActivity.class);
+        Intent intent = new Intent(this, InstructionActivity.class);
         //EditText editText = (EditText) findViewById(R.id.editText);
         //String message = editText.getText().toString();
         //intent.putExtra(EXTRA_MESSAGE, message);
@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
     /** Called when the user taps the Send button */
     public void InstructionActivityOpen(View view) {
-        Intent intent = new Intent(this, InstructionActivity.class);
+        Intent intent = new Intent(this, StudentamActivity.class);
 
         startActivity(intent);
     }
