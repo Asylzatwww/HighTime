@@ -59,4 +59,11 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void NashaComandaActivityOpen(View view) {
+        Intent intent = new Intent(this, NashaKomandaActivity.class);
+
+        startActivity(intent);
+    }
+
+
 }

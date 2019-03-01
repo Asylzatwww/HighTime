@@ -1,6 +1,7 @@
 package com.cartoonworld.kg.hightime.test;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -23,8 +24,6 @@ import com.cartoonworld.kg.hightime.R;
 
 public class Test1Activity extends AppCompatActivity {
 
-    String[] questionDescriptopion = {  };
-    String[] questionText = {  };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,51 +31,48 @@ public class Test1Activity extends AppCompatActivity {
         setContentView(R.layout.activity_test1);
 
 
+        /**  Test Activity - AddRadio Usage ***/
         LinearLayoutCompat layout = (LinearLayoutCompat) findViewById(R.id.testLayout);
 
-        View child = getLayoutInflater().inflate(R.layout.test_question, null);
-
-
         Resources res = getResources();
-        questionDescriptopion = res.getStringArray(R.array.quesDesc);
-        questionText = res.getStringArray(R.array.questTest);
+        String[] questionDescriptopion = res.getStringArray(R.array.quesDesc);
+        String[] questionText = res.getStringArray(R.array.questTest);
 
+        TestQuestionConstructor testQuestionConstructor = new TestQuestionConstructor(layout,
+                questionDescriptopion, questionText);
 
+        testQuestionConstructor.addRadio( 0, getLayoutInflater().inflate(R.layout.test_question, null) );
+        testQuestionConstructor.addRadio( 1, getLayoutInflater().inflate(R.layout.test_question, null) );
+        testQuestionConstructor.addRadio( 2, getLayoutInflater().inflate(R.layout.test_question, null) );
+        testQuestionConstructor.addRadio( 3, getLayoutInflater().inflate(R.layout.test_question, null) );
+        testQuestionConstructor.addRadio( 4, getLayoutInflater().inflate(R.layout.test_question, null) );
 
-        addRadio(layout, 0);
-        addRadio(layout, 1);
-        addRadio(layout, 2);
-        addRadio(layout, 3);
-        addRadio(layout, 4);
+        /*** Test Activity - Radio Add end **/
 
+        /***  Button configurations ***/
 
         View buttonTest2 = getLayoutInflater().inflate(R.layout.button, null);
 
+        Button buttonNext = buttonTest2.findViewById(R.id.button_next);
+        Button buttonPrevious = buttonTest2.findViewById(R.id.button_previous);
+
+        buttonPrevious.setVisibility( View.GONE );
+
+        buttonNext.setOnClickListener( new View.OnClickListener(){
+            public void onClick(View arg0){
+                //Start new activity class
+                Intent myIntent=new Intent(Test1Activity.this,Test2Activity.class);
+                startActivity(myIntent);
+            }
+        } );
+
         layout.addView(buttonTest2);
 
+
+        /***  Button configurations End  ***/
+
     }
 
-    public void addRadio(LinearLayoutCompat layout, int quesIndex){
-        View child2 = getLayoutInflater().inflate(R.layout.test_question, null);
-
-        RadioButton radio_quest2_1 = child2.findViewById(R.id.radio_quest1);
-        RadioButton radio_quest2_2 = child2.findViewById(R.id.radio_quest2);
-        RadioButton radio_quest2_3 = child2.findViewById(R.id.radio_quest3);
-
-        TextView test1text = child2.findViewById(R.id.test1text);
-
-        test1text.setText( questionDescriptopion[ quesIndex ] );
-
-        quesIndex = quesIndex * 3;
-        radio_quest2_1.setText( questionText[ quesIndex ] );
-        radio_quest2_1.setId( 1 + quesIndex );
-        radio_quest2_2.setText( questionText[ quesIndex + 1 ] );
-        radio_quest2_2.setId( 2 + quesIndex );
-        radio_quest2_3.setText( questionText[ quesIndex + 2 ] );
-        radio_quest2_3.setId( 3 + quesIndex );
-
-        layout.addView(child2);
-    }
 
     public void onRadioButtonClicked(View view) {
         // Is the button now checked?
@@ -84,26 +80,5 @@ public class Test1Activity extends AppCompatActivity {
 
         Log.e("Radio - id : ", String.valueOf(view.getId()));
 
-        // Check which radio button was clicked
-        /*switch(view.getId()) {
-            case 1:
-                Log.e("M - ", "1");
-                break;
-            case 2:
-                Log.e("M - ", "2");
-                break;
-            case 3:
-                Log.e("M - ", "3");
-                break;
-            case 4:
-                Log.e("M - ", "4");
-                break;
-            case 5:
-                Log.e("M - ", "5");
-                break;
-            case 6:
-                Log.e("M - ", "6");
-                break;
-        }*/
     }
 }

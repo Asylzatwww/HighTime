@@ -14,15 +14,24 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".test.Test3Activity"
-            android:label="Пройдите тест"
-            android:parentActivityName=".test.Test2Activity"
+        <activity android:name=".NashaKomandaActivity"
+            android:label="Наша Команда"
+            android:parentActivityName=".MainActivity"
             >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".test.Test2Activity" />
         </activity>
-        <activity android:name=".test.Test2Activity"
+        <activity
+            android:name=".test.Test3Activity"
+            android:label="Пройдите тест"
+            android:parentActivityName=".test.Test2Activity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".test.Test2Activity" />
+        </activity>
+        <activity
+            android:name=".test.Test2Activity"
             android:label="Пройдите тест"
             android:parentActivityName=".test.Test1Activity">
             <meta-data

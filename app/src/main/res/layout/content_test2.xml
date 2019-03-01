@@ -20,26 +20,6 @@
 
 
 
-        <Button
-            android:id="@+id/blue_base"
-            android:layout_width="wrap_content"
-
-            android:layout_height="wrap_content"
-
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginLeft="100dp"
-            android:layout_marginRight="100dp"
-            android:background="@drawable/blue_base"
-            android:elevation="6dp"
-            android:onClick="Test1ActivityOpen"
-
-            android:text="@string/some_id"
-            android:textColor="#FFF" />
-
-
     </android.support.v7.widget.LinearLayoutCompat>
 
 </android.support.v4.widget.NestedScrollView>
