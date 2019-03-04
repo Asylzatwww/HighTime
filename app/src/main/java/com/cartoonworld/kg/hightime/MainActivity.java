@@ -47,6 +47,12 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void LoginActivityOpen(View view) {
+        Intent intent = new Intent(this, LoginActivity.class);
+
+        startActivity(intent);
+    }
+
     public void FilialActivityOpen(View view) {
         Intent intent = new Intent(this, FilialyActivity.class);
 
@@ -65,5 +71,9 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void NewsActivityOpen(View view){
+            Intent intent = new Intent (this, NewsAktivity.class);
 
+            startActivity(intent);
+    }
 }

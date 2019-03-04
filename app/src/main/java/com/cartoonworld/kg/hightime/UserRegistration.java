@@ -8,8 +8,10 @@ import android.os.AsyncTask;
 
 public class UserRegistration extends AsyncTask<Void, Void, Void> {
     private String postUrl;
-    public UserRegistration(String postUrl){
+    private String apiUrl;
+    public UserRegistration(String postUrl, String apiUrl){
         this.postUrl = postUrl;
+        this.apiUrl = apiUrl;
     }
 
     @Override
@@ -22,7 +24,7 @@ public class UserRegistration extends AsyncTask<Void, Void, Void> {
         HttpHandler sh = new HttpHandler();
         // Making a request to url and getting response
 
-        String jsonStr = sh.makePostCall(postUrl, "api/auth/register");
+        String jsonStr = sh.makePostCall(postUrl, apiUrl);
 
         return null;
     }

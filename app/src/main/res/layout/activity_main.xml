@@ -38,7 +38,7 @@
         android:id="@+id/btn_main2"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="3dp"
+        android:layout_marginBottom="4dp"
         android:background="@android:color/transparent"
         android:text="Главная"
         android:textAllCaps="false"
@@ -69,7 +69,6 @@
         android:id="@+id/btn_instruction"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="5dp"
         android:background="@android:color/transparent"
         android:onClick="InstructionActivityOpen"
         android:text="Инструкция"
@@ -85,7 +84,6 @@
         android:id="@+id/btn_nashakomanda"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="3dp"
         android:background="@android:color/transparent"
         android:onClick="NashaComandaActivityOpen"
         android:text="Наша команда"
@@ -101,7 +99,6 @@
         android:id="@+id/btn_nashifilialy"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="4dp"
         android:background="@android:color/transparent"
         android:onClick="FilialActivityOpen"
         android:text="Наши филиалы"
@@ -117,9 +114,7 @@
         android:id="@+id/btn_news"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="23dp"
         android:background="@android:color/transparent"
-        android:onClick="ONasActivityOpen"
         android:text="Новости"
         android:textAllCaps="false"
         android:textColor="#6C8CC7"
@@ -133,14 +128,14 @@
         android:id="@+id/btn_contacts"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="122dp"
+        android:layout_marginBottom="42dp"
         android:background="@android:color/transparent"
         android:onClick="ContactActivityOpen"
         android:text="Контакты"
         android:textAllCaps="false"
         android:textColor="#6C8CC7"
         android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btn_login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_news" />
@@ -148,27 +143,25 @@
     <Button
         android:id="@+id/btn_login"
         android:layout_width="150dp"
-        android:layout_height="32dp"
+        android:layout_height="0dp"
 
-        android:layout_marginTop="20dp"
+        android:layout_marginBottom="18dp"
         android:background="@drawable/mybutton"
-        android:onClick="RegisterActivityOpen"
+        android:onClick="LoginActivityOpen"
         android:text="Логин"
         android:textColor="@android:color/white"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/btn_registration"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_contacts"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_contacts" />
 
 
     <Button
         android:id="@+id/btn_registration"
         android:layout_width="150dp"
-        android:layout_height="32dp"
+        android:layout_height="0dp"
 
-        android:layout_marginTop="20dp"
+        android:layout_marginBottom="34dp"
         android:background="@drawable/mybutton"
         android:onClick="RegisterActivityOpen"
         android:text="Регистрация"
@@ -176,6 +169,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/btn_contacts" />
+        app:layout_constraintTop_toBottomOf="@+id/btn_login" />
 
 </android.support.constraint.ConstraintLayout>
