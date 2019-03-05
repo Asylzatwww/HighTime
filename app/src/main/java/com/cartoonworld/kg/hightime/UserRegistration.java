@@ -1,6 +1,9 @@
 package com.cartoonworld.kg.hightime;
 
 import android.os.AsyncTask;
+import android.util.Log;
+
+import java.io.IOException;
 
 /**
  * Created by User on 27.01.2019.
@@ -24,7 +27,11 @@ public class UserRegistration extends AsyncTask<Void, Void, Void> {
         HttpHandler sh = new HttpHandler();
         // Making a request to url and getting response
 
-        String jsonStr = sh.makePostCall(postUrl, apiUrl);
+        try {
+            String jsonStr = sh.makePostCall(postUrl, apiUrl);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         return null;
     }

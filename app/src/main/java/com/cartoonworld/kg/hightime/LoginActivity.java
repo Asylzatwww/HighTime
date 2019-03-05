@@ -5,6 +5,7 @@ import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
 import android.app.LoaderManager.LoaderCallbacks;
 import android.content.CursorLoader;
+import android.content.Intent;
 import android.content.Loader;
 import android.content.pm.PackageManager;
 import android.database.Cursor;
@@ -28,7 +29,14 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import static android.Manifest.permission.READ_CONTACTS;
@@ -187,14 +195,6 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             mAuthTask = new UserLoginTask(email, password);
             mAuthTask.execute((Void) null);
 
-            Log.e("Log registration : ", "fdfdf" + email + password);
-
-            String postUrl = "{" +
-                    "\"username\":" + email + "," +
-                    "\"password\":" + password + "" +
-                    "}";
-
-            new UserRegistration(postUrl, "api/auth/login").execute();
         }
     }
 
@@ -205,7 +205,7 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
 
     private boolean isPasswordValid(String password) {
         //TODO: Replace this with your own logic
-        return password.length() > 4;
+        return password.length() > 0;
     }
 
     /**
@@ -316,23 +316,54 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
         protected Boolean doInBackground(Void... params) {
             // TODO: attempt authentication against a network service.
 
+            HttpHandler sh = new HttpHandler();
+            // Making a request to url and getting response
+
+
+            String data  = null;
             try {
-                // Simulate network access.
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                return false;
+                data = URLEncoder.encode("username", "UTF-8") + "=" +
+                        URLEncoder.encode(mEmail, "UTF-8");
+                data += "&" + URLEncoder.encode("password", "UTF-8") + "=" +
+                        URLEncoder.encode(mPassword, "UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
             }
 
-            for (String credential : DUMMY_CREDENTIALS) {
-                String[] pieces = credential.split(":");
-                if (pieces[0].equals(mEmail)) {
-                    // Account exists, return true if the password matches.
-                    return pieces[1].equals(mPassword);
-                }
+
+            String jsonStr = null;
+            try {
+                jsonStr = sh.makePostCall("api/auth/login", data);
+            } catch (IOException e) {
+                e.printStackTrace();
             }
+
+            boolean authResponce = false;
+
+            JSONObject jsonObject = null;
+            String user = "";
+            try {
+                jsonObject = new JSONObject(jsonStr);
+                jsonObject = new JSONObject( jsonObject.getString("user") );
+
+                user = jsonObject.getString("id");
+
+                Log.e("json", user);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            if (user != "") {
+                SaveSharedPreference.setUserName(LoginActivity.this, user);
+
+                authResponce = true;
+            }
+
+
+            return authResponce;
 
             // TODO: register the new account here.
-            return true;
+            //return true;
         }
 
         @Override
@@ -341,6 +372,11 @@ public class LoginActivity extends AppCompatActivity implements LoaderCallbacks<
             showProgress(false);
 
             if (success) {
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+
+                startActivity(intent);
+
+
                 finish();
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));

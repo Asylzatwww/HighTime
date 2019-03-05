@@ -3,6 +3,7 @@ package com.cartoonworld.kg.hightime;
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
 import android.annotation.TargetApi;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
@@ -30,6 +31,12 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -59,6 +66,7 @@ public class RegisterActivity extends AppCompatActivity implements LoaderCallbac
 
     // UI references.
     private AutoCompleteTextView mEmailView;
+    private AutoCompleteTextView mNameView;
     private EditText mPasswordView;
     private View mProgressView;
     private View mLoginFormView;
@@ -68,6 +76,7 @@ public class RegisterActivity extends AppCompatActivity implements LoaderCallbac
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         // Set up the login form.
+        mNameView = (AutoCompleteTextView) findViewById(R.id.name);
         mEmailView = (AutoCompleteTextView) findViewById(R.id.email);
         populateAutoComplete();
 
@@ -154,6 +163,7 @@ public class RegisterActivity extends AppCompatActivity implements LoaderCallbac
         mPasswordView.setError(null);
 
         // Store values at the time of the login attempt.
+        String name = mNameView.getText().toString();
         String email = mEmailView.getText().toString();
         String password = mPasswordView.getText().toString();
 
@@ -186,18 +196,9 @@ public class RegisterActivity extends AppCompatActivity implements LoaderCallbac
             // Show a progress spinner, and kick off a background task to
             // perform the user login attempt.
             showProgress(true);
-            mAuthTask = new UserLoginTask(email, password);
+            mAuthTask = new UserLoginTask(name, email, password);
             mAuthTask.execute((Void) null);
 
-            Log.e("Log registration : ", "fdfdf" + email + password);
-
-            String postUrl = "{" +
-                    "\"name\": \"user1\"," +
-                    "\"email\":" + email + "," +
-                    "\"password\":" + password + "" +
-                    "}";
-
-            new UserRegistration(postUrl, "api/auth/register").execute();
         }
     }
 
@@ -307,35 +308,66 @@ public class RegisterActivity extends AppCompatActivity implements LoaderCallbac
      */
     public class UserLoginTask extends AsyncTask<Void, Void, Boolean> {
 
+        private final String mName;
         private final String mEmail;
         private final String mPassword;
 
-        UserLoginTask(String email, String password) {
+        UserLoginTask(String name, String email, String password) {
             mEmail = email;
             mPassword = password;
+            mName = name;
         }
 
         @Override
         protected Boolean doInBackground(Void... params) {
             // TODO: attempt authentication against a network service.
 
+            HttpHandler sh = new HttpHandler();
+            // Making a request to url and getting response
+
+
+            String data  = null;
             try {
-                // Simulate network access.
-                Thread.sleep(2000);
-            } catch (InterruptedException e) {
-                return false;
+                data = URLEncoder.encode("email", "UTF-8") + "=" +
+                        URLEncoder.encode(mEmail, "UTF-8");
+                data += "&" + URLEncoder.encode("password", "UTF-8") + "=" +
+                        URLEncoder.encode(mName, "UTF-8");
+                data += "&" + URLEncoder.encode("name", "UTF-8") + "=" +
+                        URLEncoder.encode(mPassword, "UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                e.printStackTrace();
             }
 
-            for (String credential : DUMMY_CREDENTIALS) {
-                String[] pieces = credential.split(":");
-                if (pieces[0].equals(mEmail)) {
-                    // Account exists, return true if the password matches.
-                    return pieces[1].equals(mPassword);
-                }
+
+            String jsonStr = null;
+            try {
+                jsonStr = sh.makePostCall("api/auth/register", data);
+            } catch (IOException e) {
+                e.printStackTrace();
             }
 
-            // TODO: register the new account here.
-            return true;
+            boolean authResponce = false;
+
+            JSONObject jsonObject = null;
+            String user = "";
+            try {
+                jsonObject = new JSONObject(jsonStr);
+                jsonObject = new JSONObject( jsonObject.getString("user") );
+
+                user = jsonObject.getString("id");
+
+                Log.e("json", user);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+            if (user != "") {
+
+                authResponce = true;
+            }
+
+
+            return authResponce;
         }
 
         @Override
@@ -344,6 +376,10 @@ public class RegisterActivity extends AppCompatActivity implements LoaderCallbac
             showProgress(false);
 
             if (success) {
+                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+
+                startActivity(intent);
+
                 finish();
             } else {
                 mPasswordView.setError(getString(R.string.error_incorrect_password));

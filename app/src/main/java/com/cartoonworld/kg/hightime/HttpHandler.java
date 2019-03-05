@@ -3,6 +3,9 @@ package com.cartoonworld.kg.hightime;
 
 import android.util.Log;
 
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -10,11 +13,14 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
+import java.io.UnsupportedEncodingException;
 import java.io.Writer;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.ProtocolException;
 import java.net.URL;
+import java.net.URLConnection;
+import java.net.URLEncoder;
 
 public class HttpHandler {
 
@@ -23,56 +29,35 @@ public class HttpHandler {
     public HttpHandler() {
     }
 
-    public String makePostCall(String reqUrl, String siteUrl) {
-        String response = null;
+    public String makePostCall(String link, String data) throws IOException {
+
+        link="http://apitest.htlife.biz/" + link;
+
+        URL url = new URL(link);
+        URLConnection conn = url.openConnection();
+
+        conn.setDoOutput(true);
+        OutputStreamWriter wr = new OutputStreamWriter(conn.getOutputStream());
+
+        wr.write( data );
+        wr.flush();
+
+        BufferedReader reader = new BufferedReader(new
+                InputStreamReader(conn.getInputStream()));
+
+        StringBuilder sb = new StringBuilder();
+        String line = null;
+
+        // Read Server Response
+        while((line = reader.readLine()) != null) {
+            sb.append(line);
+            break;
+        }
+        Log.e("received", sb.toString() );
+        return sb.toString();
 
 
-            InputStream DataInputStream = null;
-            try {
 
-                //Post parameters
-                String PostParam = reqUrl;
-
-                Log.e("Running HTTP ", PostParam);
-
-                //Preparing
-                URL url = new URL("http://apitest.htlife.biz/" + siteUrl);
-
-                HttpURLConnection cc = (HttpURLConnection)
-                        url.openConnection();
-                //set timeout for reading InputStream
-                cc.setReadTimeout(5000);
-                // set timeout for connection
-                cc.setConnectTimeout(5000);
-                //set HTTP method to POST
-                cc.setRequestMethod("POST");
-                //set it to true as we are connecting for input
-                cc.setDoInput(true);
-                //opens the communication link
-                cc.setRequestProperty("content-type", "application/json;  charset=utf-8");
-                cc.connect();
-
-                Writer writer = new BufferedWriter(new OutputStreamWriter(cc.getOutputStream(), "UTF-8"));
-                writer.write(reqUrl);
-                writer.close();
-
-                //Getting HTTP response code
-                int response2 = cc.getResponseCode();
-
-                String errorResponse=cc.getResponseMessage();
-                Log.e("Return HTTP Code ", String.valueOf(response2) + " - " + errorResponse);
-                Log.e("Return URL ", "http://apitest.htlife.biz/" + siteUrl);
-
-                //if response code is 200 / OK then read Inputstream
-                //HttpURLConnection.HTTP_OK is equal to 200
-                if(response2 == HttpURLConnection.HTTP_OK) {
-                    DataInputStream = cc.getInputStream();
-                }
-
-            } catch (Exception e) {
-                Log.e("Error", "Error in GetData", e);
-            }
-        return response;
     }
 
     public String makeServiceCall(String reqUrl) {
