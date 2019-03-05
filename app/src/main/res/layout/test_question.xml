@@ -62,7 +62,27 @@
             android:text="ninjas1"
             android:onClick="onRadioButtonClicked"/>
 
-    </RadioGroup>
+    <RadioButton android:id="@+id/radio_quest4"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginLeft="38dp"
+        android:layout_marginRight="38dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="ninjas1"
+        android:onClick="onRadioButtonClicked"/>
+
+    <RadioButton android:id="@+id/radio_quest5"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:layout_marginLeft="38dp"
+        android:layout_marginRight="38dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:text="ninjas1"
+        android:onClick="onRadioButtonClicked"/>
+
+</RadioGroup>
 
 
 

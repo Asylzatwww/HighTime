@@ -13,7 +13,7 @@
 
     <Button
         xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/button_next"
+        android:id="@+id/button_previous"
         android:layout_width="120dp"
 
         android:layout_height="32dp"
@@ -30,7 +30,7 @@
 
     <Button
         xmlns:android="http://schemas.android.com/apk/res/android"
-        android:id="@+id/button_previous"
+        android:id="@+id/button_next"
         android:layout_width="120dp"
 
         android:layout_height="32dp"

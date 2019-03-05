@@ -60,7 +60,7 @@ public class HttpHandler {
                 int response2 = cc.getResponseCode();
 
                 String errorResponse=cc.getResponseMessage();
-                Log.e("Return HTTP Code ", String.valueOf(response2));
+                Log.e("Return HTTP Code ", String.valueOf(response2) + " - " + errorResponse);
                 Log.e("Return URL ", "http://apitest.htlife.biz/" + siteUrl);
 
                 //if response code is 200 / OK then read Inputstream

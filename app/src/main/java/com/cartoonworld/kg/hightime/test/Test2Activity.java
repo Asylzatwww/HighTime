@@ -30,11 +30,11 @@ public class Test2Activity extends AppCompatActivity {
         TestQuestionConstructor testQuestionConstructor = new TestQuestionConstructor(layout,
                 questionDescriptopion, questionText);
 
-        testQuestionConstructor.addRadio( 5, getLayoutInflater().inflate(R.layout.test_question, null) );
-        testQuestionConstructor.addRadio( 6, getLayoutInflater().inflate(R.layout.test_question, null) );
-        testQuestionConstructor.addRadio( 7, getLayoutInflater().inflate(R.layout.test_question, null) );
-        testQuestionConstructor.addRadio( 8, getLayoutInflater().inflate(R.layout.test_question, null) );
-        testQuestionConstructor.addRadio( 9, getLayoutInflater().inflate(R.layout.test_question, null) );
+        testQuestionConstructor.addRadio( 5,15,3, getLayoutInflater().inflate(R.layout.test_question, null) );
+        testQuestionConstructor.addRadio( 6,18,3, getLayoutInflater().inflate(R.layout.test_question, null) );
+        testQuestionConstructor.addRadio( 7,21,3, getLayoutInflater().inflate(R.layout.test_question, null) );
+        testQuestionConstructor.addRadio( 8,24,3, getLayoutInflater().inflate(R.layout.test_question, null) );
+        testQuestionConstructor.addRadio( 9,27,3, getLayoutInflater().inflate(R.layout.test_question, null) );
 
 
         /*** Test Activity - Radio Add end **/
@@ -46,7 +46,15 @@ public class Test2Activity extends AppCompatActivity {
         Button buttonNext = buttonTest2.findViewById(R.id.button_next);
         Button buttonPrevious = buttonTest2.findViewById(R.id.button_previous);
 
-        buttonPrevious.setVisibility( View.GONE );
+        //buttonPrevious.setVisibility( View.GONE );
+
+        buttonPrevious.setOnClickListener( new View.OnClickListener(){
+            public void onClick(View arg0){
+                //Start new activity class
+                Intent myIntent=new Intent(Test2Activity.this,Test1Activity.class);
+                startActivity(myIntent);
+            }
+        } );
 
         buttonNext.setOnClickListener( new View.OnClickListener(){
             public void onClick(View arg0){

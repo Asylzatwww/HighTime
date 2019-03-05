@@ -41,11 +41,11 @@ public class Test1Activity extends AppCompatActivity {
         TestQuestionConstructor testQuestionConstructor = new TestQuestionConstructor(layout,
                 questionDescriptopion, questionText);
 
-        testQuestionConstructor.addRadio( 0, getLayoutInflater().inflate(R.layout.test_question, null) );
-        testQuestionConstructor.addRadio( 1, getLayoutInflater().inflate(R.layout.test_question, null) );
-        testQuestionConstructor.addRadio( 2, getLayoutInflater().inflate(R.layout.test_question, null) );
-        testQuestionConstructor.addRadio( 3, getLayoutInflater().inflate(R.layout.test_question, null) );
-        testQuestionConstructor.addRadio( 4, getLayoutInflater().inflate(R.layout.test_question, null) );
+        testQuestionConstructor.addRadio( 0, 0,3,getLayoutInflater().inflate(R.layout.test_question, null) );
+        testQuestionConstructor.addRadio( 1, 3,3,getLayoutInflater().inflate(R.layout.test_question, null) );
+        testQuestionConstructor.addRadio( 2, 6,3,getLayoutInflater().inflate(R.layout.test_question, null) );
+        testQuestionConstructor.addRadio( 3, 9,3,getLayoutInflater().inflate(R.layout.test_question, null) );
+        testQuestionConstructor.addRadio( 4, 12,3,getLayoutInflater().inflate(R.layout.test_question, null) );
 
         /*** Test Activity - Radio Add end **/
 
