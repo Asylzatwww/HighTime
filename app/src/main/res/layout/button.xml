@@ -16,15 +16,16 @@
         android:id="@+id/button_previous"
         android:layout_width="120dp"
 
-        android:layout_height="32dp"
+        android:layout_height="40dp"
 
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="30dp"
         android:layout_marginRight="20dp"
         android:background="@drawable/blue_base"
         android:elevation="6dp"
         android:onClick="Test1ActivityOpen"
+        android:textAllCaps="false"
 
-        android:text="@string/some_id"
+        android:text="Назад"
         android:textColor="#FFF" />
 
 
@@ -33,7 +34,7 @@
         android:id="@+id/button_next"
         android:layout_width="120dp"
 
-        android:layout_height="32dp"
+        android:layout_height="40dp"
 
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
@@ -41,8 +42,9 @@
         android:background="@drawable/blue_base"
         android:elevation="6dp"
         android:onClick="Test1ActivityOpen"
+        android:textAllCaps="false"
 
-        android:text="@string/some_id"
+        android:text="Вперед"
         android:textColor="#FFF" />
 
 </android.support.v7.widget.LinearLayoutCompat>

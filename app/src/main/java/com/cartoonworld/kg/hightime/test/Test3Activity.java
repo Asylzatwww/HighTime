@@ -10,6 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
 
+import com.cartoonworld.kg.hightime.InstructionActivity;
 import com.cartoonworld.kg.hightime.MainActivity;
 import com.cartoonworld.kg.hightime.R;
 
@@ -61,7 +62,7 @@ public class Test3Activity extends AppCompatActivity {
         buttonNext.setOnClickListener( new View.OnClickListener(){
             public void onClick(View arg0){
                 //Start new activity class
-                Intent myIntent=new Intent(Test3Activity.this, MainActivity.class);
+                Intent myIntent=new Intent(Test3Activity.this, InstructionActivity.class);
                 startActivity(myIntent);
             }
         } );

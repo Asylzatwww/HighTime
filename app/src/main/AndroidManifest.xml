@@ -14,7 +14,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".NewsAktivity"></activity>
+        <activity android:name=".level.AlphabetActivity"></activity>
+        <activity android:name=".NewsAktivity" />
         <activity
             android:name=".NashaKomandaActivity"
             android:label=""
@@ -68,22 +69,18 @@
         <activity
             android:name=".RegisterActivity"
             android:label=""
-            android:parentActivityName=".MainActivity"
-            >
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
-
         </activity>
         <activity
             android:name=".LoginActivity"
             android:label=""
-            android:parentActivityName=".MainActivity"
-            >
+            android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
-
         </activity>
         <activity
             android:name=".InstructionActivity"
