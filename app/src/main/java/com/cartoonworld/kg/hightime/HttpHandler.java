@@ -60,10 +60,11 @@ public class HttpHandler {
 
     }
 
-    public String makeServiceCall(String reqUrl) {
+    public String makeServiceCall(String link) {
         String response = null;
+        link="http://apitest.htlife.biz/" + link;
         try {
-            URL url = new URL(reqUrl);
+            URL url = new URL(link);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
 

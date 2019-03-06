@@ -16,7 +16,6 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <LinearLayout
-            android:id="@+id/email_login_form"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="20dp"
@@ -64,122 +63,24 @@
 
             </RelativeLayout>
 
-            <LinearLayout
-                android:layout_margin="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:orientation="horizontal">
 
+            <android.support.design.circularreveal.CircularRevealGridLayout
+                android:id="@+id/level_layout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_gravity="center"
+                android:layout_marginBottom="100dp"
+                android:layout_marginTop="20dp"
+                android:columnCount="2">
 
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="match_parent"
-                    android:onClick="AlphabetActivityOpen"
-                    android:orientation="vertical">
-
-
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="30dp"
-
-                        app:srcCompat="@drawable/handg" />
-
-                    <!--  Block6   -->
-                    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                        android:layout_width="fill_parent"
-                        android:layout_height="80dp"
-
-                        >
-
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerInParent="true"
-                            android:scaleType="centerCrop"
-                            android:src="@drawable/vector5"
-                            />
-
-
-                        <RelativeLayout
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerInParent="true">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_centerHorizontal="true"
-                                android:text="Alphabet"
-                                android:textAppearance="@style/onas_text" />
-
-                        </RelativeLayout>
-
-
-                    </RelativeLayout>
-
-
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_weight="1"
-                    android:layout_height="match_parent"
-                    android:onClick="AlphabetActivityOpen"
-                    android:orientation="vertical">
+            </android.support.design.circularreveal.CircularRevealGridLayout>
 
 
 
 
-                        <ImageView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="30dp"
-
-                            app:srcCompat="@drawable/hand_grey" />
-
-                        <!--  Block6   -->
-                        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-                            android:layout_width="fill_parent"
-                            android:layout_height="80dp"
-
-                            >
 
 
-                            <ImageView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_centerInParent="true"
-                                android:scaleType="centerCrop"
-                                android:src="@drawable/vector5"
-                                />
-
-
-                            <RelativeLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_centerInParent="true">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_centerHorizontal="true"
-                                    android:text="Beginner"
-                                    android:textAppearance="@style/onas_text" />
-
-
-                            </RelativeLayout>
-
-
-                        </RelativeLayout>
-
-
-                </LinearLayout>
-            </LinearLayout>
 
         </LinearLayout>
 

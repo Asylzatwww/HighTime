@@ -2,11 +2,15 @@ package com.cartoonworld.kg.hightime;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+
+import com.facebook.drawee.backends.pipeline.Fresco;
+import com.facebook.drawee.view.SimpleDraweeView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -25,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Fresco.initialize(this);
         setContentView(R.layout.activity_main);
 /*
         String json = "{\"result\":{\"success\":{\"user_token\":\"e1db938d921ba74ea5057215597e23f9\"}},\"user\":{\"id\":3369,\"fullName\":\"dd \",\"email\":\"d@dds.ru\"}}";

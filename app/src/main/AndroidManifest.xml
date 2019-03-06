@@ -14,7 +14,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".level.AlphabetActivity"></activity>
+        <activity android:name=".level.AlphabetActivity"
+            android:label=""
+            android:parentActivityName=".InstructionActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".InstructionActivity" />
+
+        </activity>
         <activity android:name=".NewsAktivity" />
         <activity
             android:name=".NashaKomandaActivity"
