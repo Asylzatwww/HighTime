@@ -33,7 +33,7 @@ public class AlphabetActivity extends AppCompatActivity implements GetCallListen
 
 
         //apiLevel = "api/level/" + getIntent().getStringExtra("EXTRA_LEVEL_ID");
-        actionIndex = 1;
+        actionIndex = 0;
 
         Globals g = Globals.getInstance();
         String instructionActivityId = getIntent().getStringExtra("EXTRA_LEVEL_ID");
@@ -49,7 +49,7 @@ public class AlphabetActivity extends AppCompatActivity implements GetCallListen
 
         url = String.format(API_LESSON_GET_BY_LEVEL, instructionActivityId);
 
-        actionIndex = 2;
+
         new GetCallClass(this,
                 url
         ).execute();
@@ -59,6 +59,7 @@ public class AlphabetActivity extends AppCompatActivity implements GetCallListen
     @Override
     public void updateResult(String result, String url) {
 
+        actionIndex++;
 
         if ( actionIndex ==  1 ){
 
