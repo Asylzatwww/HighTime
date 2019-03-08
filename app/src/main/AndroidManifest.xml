@@ -14,13 +14,27 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".level.AlphabetActivity"
+        <activity android:name=".level.VideoActivity"
+            android:theme="@style/AppTheme.NoActionBar"
+            android:configChanges="orientation|screenSize"
+            >
+
+        </activity>
+        <activity
+            android:name=".level.AlphabetActivity"
             android:label=""
             android:parentActivityName=".InstructionActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".InstructionActivity" />
-
+        </activity>
+        <activity
+            android:name=".level.LessonsActivity"
+            android:label=""
+            android:parentActivityName=".level.AlphabetActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".level.AlphabetActivity" />
         </activity>
         <activity android:name=".NewsAktivity" />
         <activity

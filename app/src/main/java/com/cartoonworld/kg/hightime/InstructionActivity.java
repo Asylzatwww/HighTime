@@ -60,7 +60,7 @@ public class InstructionActivity extends AppCompatActivity implements GetCallLis
 
 
     @Override
-    public void updateResult(String result) {
+    public void updateResult(String result, String url) {
         Log.e("str  ", result);
         try {
             JSONArray jsonArray = new JSONArray(result);
@@ -92,6 +92,10 @@ public class InstructionActivity extends AppCompatActivity implements GetCallLis
                         Intent intent = new Intent(InstructionActivity.this, AlphabetActivity.class);
                         intent.putExtra("EXTRA_LEVEL_ID", String.valueOf(arg0.getTag())  );
                         Log.e("id ", String.valueOf(arg0.getTag()));
+
+                        Globals g = Globals.getInstance();
+                        g.setInstructionActivityId( String.valueOf(arg0.getTag()) );
+
                         startActivity(intent);
                     }
                 } );

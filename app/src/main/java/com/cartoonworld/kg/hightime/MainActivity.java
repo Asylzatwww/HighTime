@@ -26,6 +26,16 @@ import java.net.URLEncoder;
 
 public class MainActivity extends AppCompatActivity {
 
+    private String instructionAcitivityId;
+
+    public String getInstructionAcitivityId() {
+        return instructionAcitivityId;
+    }
+
+    public void setInstructionAcitivityId(String id) {
+        this.instructionAcitivityId = id;
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

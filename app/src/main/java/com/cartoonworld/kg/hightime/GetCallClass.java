@@ -39,7 +39,7 @@ public class GetCallClass extends AsyncTask<Void, Void, String> {
     @Override
     protected void onPostExecute(String result) {
         super.onPostExecute(result);
-        listener.updateResult(result);
+        listener.updateResult(result, url);
     }
 
 }

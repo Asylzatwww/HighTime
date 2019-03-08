@@ -2,10 +2,9 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/alphabet_main_content"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.cartoonworld.kg.hightime.level.AlphabetActivity">
+    tools:context="com.cartoonworld.kg.hightime.level.LessonsActivity">
 
 
     <ScrollView
@@ -25,45 +24,43 @@
             android:orientation="vertical">
 
 
-            <com.facebook.drawee.view.SimpleDraweeView
-                android:id="@+id/my_image_view"
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                />
-
-
-            <TextView
-                android:id="@+id/alphabet_content"
+            <LinearLayout
+                android:id="@+id/rectangle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/alphabet_text"
-                android:textAppearance="@style/hightime_13"
-                tools:layout_editor_absoluteX="142dp"
-                tools:layout_editor_absoluteY="390dp" />
-
-
+                android:layout_margin="20dp"
+                android:background="@drawable/rectangle"
+                android:orientation="vertical" />
 
 
             <android.support.design.circularreveal.CircularRevealGridLayout
                 android:id="@+id/get_by_level_layout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
                 android:layout_gravity="center"
-                android:layout_marginBottom="100dp"
                 android:layout_marginTop="20dp"
-                android:useDefaultMargins="true"
-                android:columnCount="4">
+                android:layout_marginBottom="100dp"
+                android:columnCount="4"
+                android:orientation="horizontal"
+                android:useDefaultMargins="true">
 
             </android.support.design.circularreveal.CircularRevealGridLayout>
-
-
-
 
 
         </LinearLayout>
 
     </ScrollView>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="Button"
+        android:onClick="BTNActivityOpen"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 </android.support.constraint.ConstraintLayout>
