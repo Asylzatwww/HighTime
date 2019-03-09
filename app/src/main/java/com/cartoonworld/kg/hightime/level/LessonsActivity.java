@@ -1,6 +1,7 @@
 package com.cartoonworld.kg.hightime.level;
 
 import android.content.Intent;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +9,7 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.widget.GridLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.MediaController;
 import android.widget.TextView;
@@ -53,11 +55,6 @@ public class LessonsActivity extends AppCompatActivity implements GetCallListene
 
     }
 
-    public void BTNActivityOpen(View view) {
-        Intent intent = new Intent(LessonsActivity.this, VideoActivity.class);
-        startActivity(intent);
-    }
-
     @Override
     public void updateResult(String result, String url) {
 
@@ -79,15 +76,16 @@ public class LessonsActivity extends AppCompatActivity implements GetCallListene
                 TextView lessonTitle = (TextView) element_level.findViewById(R.id.lesson_title);
                 //ellipseText.setTag( jsonObject.getString("id") );
                 lessonTitle.setText( jsonVideos.getString("name") );
-                /*ellipseText.setOnClickListener( new View.OnClickListener(){
+                ImageView button_video_play = (ImageView) element_level.findViewById(R.id.button_video_play);
+                button_video_play.setOnClickListener( new View.OnClickListener(){
                     public void onClick(View arg0){
 
-                        Intent intent = new Intent(LessonsActivity.this, LessonsActivity.class);
-                        intent.putExtra("EXTRA_LEVEL_ID", String.valueOf(arg0.getTag())  );
-                        Log.e("id ", String.valueOf(arg0.getTag()));
+                        Intent intent = new Intent(LessonsActivity.this, VideoActivity.class);
+                        //intent.putExtra("EXTRA_LEVEL_ID", String.valueOf(arg0.getTag())  );
+                        //Log.e("id ", String.valueOf(arg0.getTag()));
                         startActivity(intent);
                     }
-                } );*/
+                } );
 
                 layout.addView(element_level);
 
