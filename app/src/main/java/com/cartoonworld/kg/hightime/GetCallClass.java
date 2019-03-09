@@ -3,6 +3,7 @@ package com.cartoonworld.kg.hightime;
 import android.app.Activity;
 import android.content.Context;
 import android.os.AsyncTask;
+import android.util.Log;
 
 import com.cartoonworld.kg.hightime.test.GetCallListener;
 
@@ -31,7 +32,6 @@ public class GetCallClass extends AsyncTask<Void, Void, String> {
         HttpHandler sh = new HttpHandler();
         // Making a request to url and getting response
         String jsonStr = sh.makeServiceCall(url);
-
 
         return jsonStr;
     }
