@@ -20,7 +20,12 @@ import android.widget.RadioGroup;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
+import com.cartoonworld.kg.hightime.Globals;
 import com.cartoonworld.kg.hightime.R;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class Test1Activity extends AppCompatActivity {
 
@@ -30,46 +35,79 @@ public class Test1Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test1);
 
+        Globals g = Globals.getInstance();
 
-        /**  Test Activity - AddRadio Usage ***/
-        LinearLayoutCompat layout = (LinearLayoutCompat) findViewById(R.id.testLayout);
 
-        Resources res = getResources();
-        String[] questionDescriptopion = res.getStringArray(R.array.quesDesc);
-        String[] questionText = res.getStringArray(R.array.questTest);
+        if (g.getQuestionDescriptopion().length > 0){
 
-        TestQuestionConstructor testQuestionConstructor = new TestQuestionConstructor(layout,
-                questionDescriptopion, questionText);
 
-        testQuestionConstructor.addRadio( 0, 0,3,getLayoutInflater().inflate(R.layout.test_question, null) );
-        testQuestionConstructor.addRadio( 1, 3,3,getLayoutInflater().inflate(R.layout.test_question, null) );
-        testQuestionConstructor.addRadio( 2, 6,3,getLayoutInflater().inflate(R.layout.test_question, null) );
-        testQuestionConstructor.addRadio( 3, 9,3,getLayoutInflater().inflate(R.layout.test_question, null) );
-        testQuestionConstructor.addRadio( 4, 12,3,getLayoutInflater().inflate(R.layout.test_question, null) );
+            String[] questionDescriptopion = g.getQuestionDescriptopion();
+            String[] questionText = g.getQuestionText();
+            int[] answerStart = g.getAnswerStart();
+            int[] answerLength = g.getAnswerLength();
 
-        /*** Test Activity - Radio Add end **/
+            Log.e("Test Array String : ", g.getTestsArray() );
 
-        /***  Button configurations ***/
 
-        View buttonTest2 = getLayoutInflater().inflate(R.layout.button, null);
 
-        Button buttonNext = buttonTest2.findViewById(R.id.button_next);
-        Button buttonPrevious = buttonTest2.findViewById(R.id.button_previous);
 
-        buttonPrevious.setVisibility( View.GONE );
+            LinearLayoutCompat layout = (LinearLayoutCompat) findViewById(R.id.testLayout);
+            TestQuestionConstructor testQuestionConstructor = new TestQuestionConstructor(layout,
+                    questionDescriptopion, questionText );
 
-        buttonNext.setOnClickListener( new View.OnClickListener(){
-            public void onClick(View arg0){
-                //Start new activity class
-                Intent myIntent=new Intent(Test1Activity.this,Test2Activity.class);
-                startActivity(myIntent);
+            for (int i=0; i< questionDescriptopion.length; i++) {
+                testQuestionConstructor.addRadio(i, answerStart[i], answerLength[i], getLayoutInflater().inflate(R.layout.test_question, null));
             }
-        } );
 
-        layout.addView(buttonTest2);
+            /*for (int i=0;i<jsonTests.length();i++){
+                JSONObject jsonTest = jsonTests.getJSONObject(i);
+
+            }*/
+        } else {
+
+            /**  Test Activity - AddRadio Usage ***/
+            LinearLayoutCompat layout = (LinearLayoutCompat) findViewById(R.id.testLayout);
+
+            Resources res = getResources();
+            String[] questionDescriptopion = res.getStringArray(R.array.quesDesc);
+            String[] questionText = res.getStringArray(R.array.questTest);
+
+            TestQuestionConstructor testQuestionConstructor = new TestQuestionConstructor(layout,
+                    questionDescriptopion, questionText);
+
+            testQuestionConstructor.addRadio( 0, 0,3,getLayoutInflater().inflate(R.layout.test_question, null) );
+            testQuestionConstructor.addRadio( 1, 3,3,getLayoutInflater().inflate(R.layout.test_question, null) );
+            testQuestionConstructor.addRadio( 2, 6,3,getLayoutInflater().inflate(R.layout.test_question, null) );
+            testQuestionConstructor.addRadio( 3, 9,3,getLayoutInflater().inflate(R.layout.test_question, null) );
+            testQuestionConstructor.addRadio( 4, 12,3,getLayoutInflater().inflate(R.layout.test_question, null) );
+
+            /*** Test Activity - Radio Add end **/
+
+            /***  Button configurations ***/
+
+            View buttonTest2 = getLayoutInflater().inflate(R.layout.button, null);
+
+            Button buttonNext = buttonTest2.findViewById(R.id.button_next);
+            Button buttonPrevious = buttonTest2.findViewById(R.id.button_previous);
+
+            buttonPrevious.setVisibility( View.GONE );
+
+            buttonNext.setOnClickListener( new View.OnClickListener(){
+                public void onClick(View arg0){
+                    //Start new activity class
+                    Intent myIntent=new Intent(Test1Activity.this,Test2Activity.class);
+                    startActivity(myIntent);
+                }
+            } );
+
+            layout.addView(buttonTest2);
 
 
-        /***  Button configurations End  ***/
+            /***  Button configurations End  ***/
+
+
+        }
+
 
     }
 

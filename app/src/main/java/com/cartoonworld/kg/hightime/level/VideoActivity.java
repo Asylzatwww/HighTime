@@ -18,7 +18,10 @@ public class VideoActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_video);
 
+
         String LINK = "http://htlife.biz/uploads/videos/levels/alphabet/letter-b/432a2122cd7fe4b85cb5335d4c4daccd.mp4";
+
+        LINK = getIntent().getStringExtra("EXTRA_VIDEO_URL");
 
         VideoView videoView =(VideoView)findViewById(R.id.myVideo);
         MediaController mediaController= new MediaController(this);
