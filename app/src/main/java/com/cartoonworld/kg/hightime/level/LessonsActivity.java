@@ -96,7 +96,7 @@ public class LessonsActivity extends AppCompatActivity implements GetCallListene
                             Log.e("TTTTTTTTTTTTTTTT", String.valueOf(arg0.getTag()));
 
                             Intent intent = new Intent(LessonsActivity.this, Test1Activity.class);
-                            intent.putExtra("EXTRA_VIDEO_URL", String.valueOf(arg0.getTag())  );
+                            intent.putExtra("EXTRA_TEST_FROM_SERVER", "true"  );
                             startActivity(intent);
                         }
                     } );

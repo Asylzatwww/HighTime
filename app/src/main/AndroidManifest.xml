@@ -54,6 +54,51 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".test.Test2Activity" />
         </activity>
+
+
+        <activity
+            android:name=".test.Test4Activity"
+            android:label="Пройдите тест"
+            android:parentActivityName=".test.Test3Activity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".test.Test3Activity" />
+        </activity>
+        <activity
+            android:name=".test.Test5Activity"
+            android:label="Пройдите тест"
+            android:parentActivityName=".test.Test4Activity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".test.Test4Activity" />
+        </activity>
+        <activity
+            android:name=".test.Test6Activity"
+            android:label="Пройдите тест"
+            android:parentActivityName=".test.Test5Activity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".test.Test5Activity" />
+        </activity>
+        <activity
+            android:name=".test.Test7Activity"
+            android:label="Пройдите тест"
+            android:parentActivityName=".test.Test6Activity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".test.Test6Activity" />
+        </activity>
+        <activity
+            android:name=".test.Test8Activity"
+            android:label="Пройдите тест"
+            android:parentActivityName=".test.Test7Activity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".test.Test7Activity" />
+        </activity>
+
+
+
         <activity
             android:name=".test.Test2Activity"
             android:label="Пройдите тест"

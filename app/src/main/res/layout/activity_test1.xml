@@ -4,8 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".test.Test1Activity">
+    >
 
-    <include layout="@layout/content_test1" />
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+    <android.support.v7.widget.LinearLayoutCompat
+        android:layout_width="wrap_content"
+        android:id="@+id/testLayout"
+
+        android:orientation="vertical"
+
+        android:layout_height="wrap_content">
+    </android.support.v7.widget.LinearLayoutCompat>
+    </ScrollView>
 
 </android.support.constraint.ConstraintLayout>

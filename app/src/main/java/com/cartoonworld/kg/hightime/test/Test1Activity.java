@@ -21,6 +21,7 @@ import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 import com.cartoonworld.kg.hightime.Globals;
+import com.cartoonworld.kg.hightime.InstructionActivity;
 import com.cartoonworld.kg.hightime.R;
 
 import org.json.JSONArray;
@@ -29,85 +30,116 @@ import org.json.JSONObject;
 
 public class Test1Activity extends AppCompatActivity {
 
+    public boolean nextBtnShow = true;
+    public LinearLayoutCompat layout;
+
+
+    public void questConstrfromLocal(int loopFrom, int loopTo, int answerLength, int answerStart){
+
+        Resources res = getResources();
+        String[] questionDescriptopion = res.getStringArray(R.array.quesDesc);
+        String[] questionText = res.getStringArray(R.array.questTest);
+
+        TestQuestionConstructor testQuestionConstructor = new TestQuestionConstructor(layout,
+                questionDescriptopion, questionText);
+
+        for (int i=loopFrom; i< loopTo; i++) {
+            testQuestionConstructor.addRadio(i, answerStart, answerLength,
+                    getLayoutInflater().inflate(R.layout.test_question, null));
+            answerStart += answerLength;
+        }
+
+    }
+
+
+    public void questConstrfromJson(int loopFrom, int loopTo){
+
+
+        Globals g = Globals.getInstance();
+        String[] questionDescriptopion = g.getQuestionDescriptopion();
+        String[] questionText = g.getQuestionText();
+        int[] answerStart = g.getAnswerStart();
+        int[] answerLength = g.getAnswerLength();
+        int questLength;
+
+        if (questionDescriptopion.length <= loopTo) {
+            questLength = questionDescriptopion.length;
+            nextBtnShow = false;
+        } else {
+            questLength = loopTo;
+        }
+
+
+        Log.e("Test Array String : ", g.getTestsArray() );
+
+        TestQuestionConstructor testQuestionConstructor = new TestQuestionConstructor(layout,
+                questionDescriptopion, questionText );
+
+        for (int i=loopFrom; i< questLength; i++) {
+            testQuestionConstructor.addRadio(i, answerStart[i], answerLength[i],
+                    getLayoutInflater().inflate(R.layout.test_question, null));
+        }
+
+
+
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test1);
 
-        Globals g = Globals.getInstance();
+        layout = (LinearLayoutCompat) findViewById(R.id.testLayout);
 
+        if (getIntent().hasExtra("EXTRA_TEST_FROM_SERVER")){
 
-        if (g.getQuestionDescriptopion().length > 0){
+            questConstrfromJson(0,5);
 
-
-            String[] questionDescriptopion = g.getQuestionDescriptopion();
-            String[] questionText = g.getQuestionText();
-            int[] answerStart = g.getAnswerStart();
-            int[] answerLength = g.getAnswerLength();
-
-            Log.e("Test Array String : ", g.getTestsArray() );
-
-
-
-
-            LinearLayoutCompat layout = (LinearLayoutCompat) findViewById(R.id.testLayout);
-            TestQuestionConstructor testQuestionConstructor = new TestQuestionConstructor(layout,
-                    questionDescriptopion, questionText );
-
-            for (int i=0; i< questionDescriptopion.length; i++) {
-                testQuestionConstructor.addRadio(i, answerStart[i], answerLength[i], getLayoutInflater().inflate(R.layout.test_question, null));
-            }
-
-            /*for (int i=0;i<jsonTests.length();i++){
-                JSONObject jsonTest = jsonTests.getJSONObject(i);
-
-            }*/
         } else {
 
-            /**  Test Activity - AddRadio Usage ***/
-            LinearLayoutCompat layout = (LinearLayoutCompat) findViewById(R.id.testLayout);
+            questConstrfromLocal(0,5,3, 0);
+        }
 
-            Resources res = getResources();
-            String[] questionDescriptopion = res.getStringArray(R.array.quesDesc);
-            String[] questionText = res.getStringArray(R.array.questTest);
+        View buttonTest2 = getLayoutInflater().inflate(R.layout.button, null);
 
-            TestQuestionConstructor testQuestionConstructor = new TestQuestionConstructor(layout,
-                    questionDescriptopion, questionText);
+        Button buttonNext = buttonTest2.findViewById(R.id.button_next);
+        Button buttonPrevious = buttonTest2.findViewById(R.id.button_previous);
 
-            testQuestionConstructor.addRadio( 0, 0,3,getLayoutInflater().inflate(R.layout.test_question, null) );
-            testQuestionConstructor.addRadio( 1, 3,3,getLayoutInflater().inflate(R.layout.test_question, null) );
-            testQuestionConstructor.addRadio( 2, 6,3,getLayoutInflater().inflate(R.layout.test_question, null) );
-            testQuestionConstructor.addRadio( 3, 9,3,getLayoutInflater().inflate(R.layout.test_question, null) );
-            testQuestionConstructor.addRadio( 4, 12,3,getLayoutInflater().inflate(R.layout.test_question, null) );
+        buttonPrevious.setVisibility( View.GONE );
 
-            /*** Test Activity - Radio Add end **/
 
-            /***  Button configurations ***/
+        if (getIntent().hasExtra("EXTRA_TEST_FROM_SERVER")){
 
-            View buttonTest2 = getLayoutInflater().inflate(R.layout.button, null);
+            if (nextBtnShow)
+                buttonNext.setOnClickListener( new View.OnClickListener(){
+                    public void onClick(View arg0){
+                        Intent myIntent=new Intent(Test1Activity.this,Test2Activity.class);
+                        myIntent.putExtra("EXTRA_TEST_FROM_SERVER", "true"  );
+                        startActivity(myIntent);
+                    }
+                } );
+            else
+                buttonNext.setOnClickListener( new View.OnClickListener(){
+                    public void onClick(View arg0){
+                        Intent myIntent=new Intent(Test1Activity.this, InstructionActivity.class);
+                        myIntent.putExtra("EXTRA_TEST_FROM_SERVER", "true"  );
+                        startActivity(myIntent);
+                    }
+                } );
 
-            Button buttonNext = buttonTest2.findViewById(R.id.button_next);
-            Button buttonPrevious = buttonTest2.findViewById(R.id.button_previous);
 
-            buttonPrevious.setVisibility( View.GONE );
+        } else {
 
             buttonNext.setOnClickListener( new View.OnClickListener(){
                 public void onClick(View arg0){
-                    //Start new activity class
                     Intent myIntent=new Intent(Test1Activity.this,Test2Activity.class);
                     startActivity(myIntent);
                 }
             } );
-
-            layout.addView(buttonTest2);
-
-
-            /***  Button configurations End  ***/
-
-
         }
 
+        layout.addView(buttonTest2);
 
     }
 

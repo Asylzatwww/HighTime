@@ -11,33 +11,27 @@ import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
+import com.cartoonworld.kg.hightime.InstructionActivity;
 import com.cartoonworld.kg.hightime.R;
 
-public class Test2Activity extends AppCompatActivity {
+public class Test2Activity extends Test1Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test1);
 
-        /**  Test Activity - AddRadio Usage ***/
-        LinearLayoutCompat layout = (LinearLayoutCompat) findViewById(R.id.testLayout);
+        layout = (LinearLayoutCompat) findViewById(R.id.testLayout);
 
-        Resources res = getResources();
-        String[] questionDescriptopion = res.getStringArray(R.array.quesDesc);
-        String[] questionText = res.getStringArray(R.array.questTest);
+        if (getIntent().hasExtra("EXTRA_TEST_FROM_SERVER")){
 
-        TestQuestionConstructor testQuestionConstructor = new TestQuestionConstructor(layout,
-                questionDescriptopion, questionText);
+            questConstrfromJson(5,10);
 
-        testQuestionConstructor.addRadio( 5,15,3, getLayoutInflater().inflate(R.layout.test_question, null) );
-        testQuestionConstructor.addRadio( 6,18,3, getLayoutInflater().inflate(R.layout.test_question, null) );
-        testQuestionConstructor.addRadio( 7,21,3, getLayoutInflater().inflate(R.layout.test_question, null) );
-        testQuestionConstructor.addRadio( 8,24,3, getLayoutInflater().inflate(R.layout.test_question, null) );
-        testQuestionConstructor.addRadio( 9,27,3, getLayoutInflater().inflate(R.layout.test_question, null) );
+        } else {
 
+            questConstrfromLocal(5,10,3, 15);
+        }
 
-        /*** Test Activity - Radio Add end **/
 
         /***  Button configurations ***/
 
@@ -48,21 +42,49 @@ public class Test2Activity extends AppCompatActivity {
 
         //buttonPrevious.setVisibility( View.GONE );
 
-        buttonPrevious.setOnClickListener( new View.OnClickListener(){
-            public void onClick(View arg0){
-                //Start new activity class
-                Intent myIntent=new Intent(Test2Activity.this,Test1Activity.class);
-                startActivity(myIntent);
-            }
-        } );
+        if (getIntent().hasExtra("EXTRA_TEST_FROM_SERVER")){
 
-        buttonNext.setOnClickListener( new View.OnClickListener(){
-            public void onClick(View arg0){
-                //Start new activity class
-                Intent myIntent=new Intent(Test2Activity.this,Test3Activity.class);
-                startActivity(myIntent);
-            }
-        } );
+            buttonPrevious.setOnClickListener( new View.OnClickListener(){
+                public void onClick(View arg0){
+                    Intent myIntent=new Intent(Test2Activity.this,Test1Activity.class);
+                    myIntent.putExtra("EXTRA_TEST_FROM_SERVER", "true"  );
+                    startActivity(myIntent);
+                }
+            } );
+
+            if (nextBtnShow)
+                buttonNext.setOnClickListener( new View.OnClickListener(){
+                    public void onClick(View arg0){
+                        Intent myIntent=new Intent(Test2Activity.this,Test3Activity.class);
+                        myIntent.putExtra("EXTRA_TEST_FROM_SERVER", "true"  );
+                        startActivity(myIntent);
+                    }
+                } );
+            else
+                buttonNext.setOnClickListener( new View.OnClickListener(){
+                    public void onClick(View arg0){
+                        Intent myIntent=new Intent(Test2Activity.this, InstructionActivity.class);
+                        myIntent.putExtra("EXTRA_TEST_FROM_SERVER", "true"  );
+                        startActivity(myIntent);
+                    }
+                } );
+
+        } else {
+
+            buttonPrevious.setOnClickListener( new View.OnClickListener(){
+                public void onClick(View arg0){
+                    Intent myIntent=new Intent(Test2Activity.this,Test1Activity.class);
+                    startActivity(myIntent);
+                }
+            } );
+
+            buttonNext.setOnClickListener( new View.OnClickListener(){
+                public void onClick(View arg0){
+                    Intent myIntent=new Intent(Test2Activity.this,Test3Activity.class);
+                    startActivity(myIntent);
+                }
+            } );
+        }
 
         layout.addView(buttonTest2);
 
