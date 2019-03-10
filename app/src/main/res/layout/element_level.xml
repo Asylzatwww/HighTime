@@ -8,8 +8,8 @@
 
     <com.facebook.drawee.view.SimpleDraweeView
         android:id="@+id/level_image_view"
-        android:layout_width="190dp"
-        android:layout_height="150dp"
+        android:layout_width="160sp"
+        android:layout_height="150sp"
         fresco:viewAspectRatio="1"
 
          />
