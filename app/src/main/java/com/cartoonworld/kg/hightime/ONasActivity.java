@@ -3,6 +3,8 @@ package com.cartoonworld.kg.hightime;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.widget.TextView;
 
 public class ONasActivity extends AppCompatActivity {
@@ -12,13 +14,15 @@ public class ONasActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_onas);
 
-        // Get the Intent that started this activity and extract the string
-        Intent intent = getIntent();
-        //String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
+        findViewById(R.id.my_toolbar).bringToFront();
 
-        // Capture the layout's TextView and set the string as its text
-        //TextView textView = findViewById(R.id.textView);
-        //textView.setText(message);
+        TextView my_toolbar_tex_id = myToolbar.findViewById(R.id.my_toolbar_tex_id);
+        my_toolbar_tex_id.setText("О Нас");
+
+        setSupportActionBar(myToolbar);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
     }
 }
