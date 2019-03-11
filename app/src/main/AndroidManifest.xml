@@ -41,7 +41,9 @@
         <activity
             android:name=".NashaKomandaActivity"
             android:label=""
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/ONasActionBarTheme"
+            >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".test.Test2Activity" />
@@ -102,7 +104,9 @@
         <activity
             android:name=".test.Test2Activity"
             android:label="Пройдите тест"
-            android:parentActivityName=".test.Test1Activity">
+            android:parentActivityName=".test.Test1Activity"
+
+            >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".StudentamActivity" />
@@ -126,7 +130,9 @@
         <activity
             android:name=".FilialyActivity"
             android:label=""
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/ONasActionBarTheme"
+            >
 
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
@@ -136,7 +142,19 @@
         <activity
             android:name=".RegisterActivity"
             android:label=""
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/ONasActionBarTheme"
+            >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+        </activity>
+        <activity
+            android:name=".ContactsActivity"
+            android:label=""
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/ONasActionBarTheme"
+            >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
@@ -144,7 +162,9 @@
         <activity
             android:name=".LoginActivity"
             android:label=""
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/ONasActionBarTheme"
+            >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
@@ -152,7 +172,9 @@
         <activity
             android:name=".InstructionActivity"
             android:label=""
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/ONasActionBarTheme"
+            >
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
@@ -160,7 +182,9 @@
         <activity
             android:name=".StudentamActivity"
             android:label=""
-            android:parentActivityName=".MainActivity">
+            android:parentActivityName=".MainActivity"
+            android:theme="@style/ONasActionBarTheme"
+            >
 
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data

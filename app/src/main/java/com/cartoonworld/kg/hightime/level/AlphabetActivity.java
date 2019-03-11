@@ -1,6 +1,9 @@
 package com.cartoonworld.kg.hightime.level;
 
+import android.app.ActionBar;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -32,6 +35,8 @@ public class AlphabetActivity extends AppCompatActivity implements GetCallListen
         setContentView(R.layout.activity_alphabet);
 
 
+
+
         //apiLevel = "api/level/" + getIntent().getStringExtra("EXTRA_LEVEL_ID");
         actionIndex = 0;
 
@@ -40,6 +45,34 @@ public class AlphabetActivity extends AppCompatActivity implements GetCallListen
 
         if (instructionActivityId == null)
             instructionActivityId=g.getInstructionActivityId();
+
+        switch (instructionActivityId){
+            case "2" :
+                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().
+                        getColor(R.color.alphabetColor)));
+                break;
+            case "3" :
+                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().
+                        getColor(R.color.beginnerColor)));
+                break;
+            case "4" :
+                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().
+                        getColor(R.color.preintermediateColor)));
+                break;
+            case "5" :
+                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().
+                        getColor(R.color.intermediateColor)));
+                break;
+            case "6" :
+                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().
+                        getColor(R.color.upperintermediteColor)));
+                break;
+            case "7" :
+                getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().
+                        getColor(R.color.advancedColor)));
+                break;
+        }
+
 
         String url = String.format(API_LEVEL, instructionActivityId);
 

@@ -6,6 +6,8 @@
     android:layout_height="match_parent"
     tools:context=".NashaKomandaActivity">
 
+    <include layout="@layout/header_no_title" />
+
     <include layout="@layout/content_nasha_comanda" />
 
 

@@ -6,4 +6,11 @@
     <color name="whiteColor">#FFF</color>
     <color name="lightBlueColor">#00AEEF</color>
 
+    <color name="alphabetColor">#86D511</color>
+    <color name="beginnerColor">#F79D4D</color>
+    <color name="preintermediateColor">#ED1C24</color>
+    <color name="intermediateColor">#003F79</color>
+    <color name="upperintermediteColor">#8C100E</color>
+    <color name="advancedColor">#D2AB67</color>
+
 </resources>

@@ -16,6 +16,7 @@
     <style name="ONasActionBarTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:windowBackground">@color/whiteColor</item>
         <item name="colorControlNormal">@color/lightBlueColor</item>
+        <item name="windowActionBar">false</item>
     </style>
 
 

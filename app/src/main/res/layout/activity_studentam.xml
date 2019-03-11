@@ -6,6 +6,11 @@
     android:layout_height="match_parent"
     tools:context=".StudentamActivity">
 
+    <include layout="@layout/header" />
+
+
+
+
 
 
     <include layout="@layout/content_studentam" />

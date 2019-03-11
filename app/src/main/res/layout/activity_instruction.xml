@@ -6,6 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".InstructionActivity">
 
+
+
+
+
+    <include layout="@layout/header_no_title" />
+
+
+
+
+
+
+
+
+
     <ScrollView
         android:id="@+id/login_form"
         android:layout_width="0dp"
